@@ -1,6 +1,6 @@
 /* Author: Andre Barros de Medeiros
  * Date: 14/08/19
- * Description: Function for extracting frames from video
+ * Description: Function for extracting frames from video and convert to gray scale
  * Copyright: Free to use, copy, and modify
  * */
 
@@ -28,8 +28,8 @@ public class ExtractFrames{
 			//read a frame every 10 frames
 			if(!frame.empty() & (count%10)==0) {
 				System.out.println("Read " +count+ "  frame"); //verification of read print
-				//Imgproc.cvtColor(frame, grayframe, Imgproc.COLOR_RGB2GRAY); //convert frame to gray scale
-				//System.out.println("Frame "+count+" converted"); //verification of gray conversion
+				Imgproc.cvtColor(frame, grayframe, Imgproc.COLOR_RGB2GRAY); //convert frame to gray scale
+				System.out.println("Frame "+count+" converted"); //verification of gray conversion
 				Imgcodecs.imwrite(pathOUT+"frame"+count+".jpg", grayframe); //write frame to pathOUT
 				count+=1;
 			}
